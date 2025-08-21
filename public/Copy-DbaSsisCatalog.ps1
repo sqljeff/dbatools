@@ -108,6 +108,7 @@ function Copy-DbaSsisCatalog {
     )
     <# Developer note: The throw calls must stay in this command #>
     begin {
+        <#add logic so PS7 on Windows is allowed.#>
         if ($PSVersionTable.PSEdition -eq "Core" -and ($IsLinux -or $IsMacOS)) {
             Stop-Function -Message "This command is not supported on Linux or macOS"
             return
